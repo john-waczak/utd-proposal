@@ -1,0 +1,362 @@
+---
+title: "Physcial Sensing and Physics-based Machine Learning for Actionable Environmental Insights"
+author: "John Waczak"
+date: today
+format:
+    revealjs:
+        slide-number: true
+        theme: default
+        margin: 0.05
+bibliography: references.bib
+---
+
+
+
+# Motivation
+
+## Global Change, Air Quality, and the Need for Physical Sensing
+
+::: {.fragment .fade-in}
+![](./assets/motivation/hurricanes.png){.absolute top="150" left="-30" width="400" }
+![](./assets/motivation/typhoon-article.png){.absolute top="150" left="600" width="400" }
+:::
+
+::: {.fragment .fade-in}
+![](./assets/motivation/maui-article-1.png){.absolute top="250" left="0" width="400" }
+![](./assets/motivation/canada-article-2.png){.absolute top="250" left="630" width="400" }
+:::
+
+::: {.fragment .fade-in}
+![](./assets/motivation/canada-article-1.png){.absolute top="350" left="30" width="400" }
+![](./assets/motivation/ecmwf-report.png){.absolute top="350" left="660" width="400" }
+:::
+
+::: {.fragment .fade-in}
+![](./assets/motivation/palestine-article-1.png){.absolute top="450" left="60" width="400" }
+![](./assets/motivation/palestine-article-2.png){.absolute top="450" left="690" width="400" }
+:::
+
+
+::: {.fragment .fade-in}
+![](./assets/motivation/covid-article-2.png){.absolute top="550" left="90" width="400" }
+![](./assets/motivation/covid-article-1.png){.absolute top="550" left="720" width="400" }
+:::
+
+
+
+## {background-image="./assets/mints-ai.png" background-size="contain"}
+
+## {background-image="./assets/mints-ai-highlighted.png" background-size="contain"}
+
+
+
+## The Role of Machine Learning {.smaller}
+
+::::{.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in}
+![](./assets/motivation/dog-or-muffin.jpeg){.absolute top="150" left="0" width="500" }
+:::
+
+::: {.fragment .fade-in}
+![](./assets/motivation/chatgpt-1.png){.absolute top="450" left="0" width="500" }
+:::
+
+:::
+
+::: {.column width="50%"}
+ML models have proven to be wildly successful for a variety of tasks such as
+
+- Image classification/recognition
+- Speech recognition
+- Language translation
+- Spam detection / "Smart" Advertising
+
+Due to the diverse and abstract nature of many of these problems, many ML models act like *black boxes*. This is not ideal for scientific applications where the goal is to *both* make predictions *and* gain insight into the underlying physical reality.
+
+:::
+::::
+
+## {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- The measurements we have are often only *indirectly* related to the quantities we want to estimate
+- Our current physical models may be incomplete (i.e. missing physics)
+- Physical models may have a limited domain of applicability (i.e. limited feature ranges)
+- Many ML models behave as [universal approximators](https://www.sciencedirect.com/science/article/pii/0893608089900208)
+- ML models uses data to overcome the [curse of dimensionality](https://stats.stackexchange.com/questions/186184/does-dimensionality-curse-effect-some-models-more-than-others#:~:text=Neural%20networks%20are%20weird%20in,to%20cover%20an%20input%20space.) with data
+- Many ML models can be further constrained to obey physical symmetries & constraints
+:::
+
+::: {.column width="50%"}
+
+
+<!-- ![](./assets/motivation/ude-framework.png){.absolute top="0" left="0" width="600" } -->
+![](./assets/motivation/ude-framework.png)
+
+<!-- ![](./assets/motivation/ude-extrapolation.png){.absolute top="300" left="0" width="600" } -->
+
+![](./assets/motivation/ude-extrapolation.png)
+
+:::
+
+::::
+
+
+::: aside
+Figures from [@ude-paper]
+:::
+
+
+## Outline of Proposed Work
+
+:::: {.columns}
+
+::: {.column width="33.3%"}
+![](./assets/robot-team-table.png)
+:::
+
+::: {.column width="33.3%"}
+![](./assets/air-quality-network-table.png)
+:::
+
+::: {.column width="33.3%"}
+![](./assets/chemical-data-assimilation-table.png)
+:::
+
+::::
+
+
+
+
+# Project 1: Robot Team {background-image="./assets/robot-team-deployment.png"}
+
+## Guiding Question: *Is this area safe?* {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- Most remote sensing satellites consist of multi-band imagers
+- Pixel resolutions tend to be large (10 - 60 meters for Sentinel 2)
+- Locations are revisited infrequently (5 days for Sentinel 2)
+- Massive data volume must be transferred & post-processed
+- Visible imagery are easily occluded by clouds
+- Insights limited by wavelength bands and availability of reference measurements at ground level
+
+:::
+
+::: {.column width="50%"}
+![](./assets/robot-team/passbands.svg)
+![](./assets/robot-team/resolution-comparison.png)
+
+::: aside
+Resolution comparison figure from [@resolution-comparison]
+:::
+
+:::
+::::
+
+## {background-image="./assets/robot-team/robotteam-1.png" background-size="contain"}
+
+## Physical Sensing: Autonomous Drone {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- FreeFly Alta X Quadcopter
+- Resonon Pika Hyperspectral Imager
+  - 462 wavelength bands from 400 to 1000 nm
+  - Embedded IMU/GPS
+  - 1600 pixels per scanline, $30.8^{\circ}$ FOV
+- Ocean Optics Flame-S Spectrometer
+  - 2048 wavelength
+  - 340-1024 nm
+- Intel NUC 10i7FNK for real-time processing
+:::
+::: {.column width="50%"}
+![](./assets/alta-x.gif){.absolute top="50" left="700" width="400" }
+![](./assets/resonon-hsi.png){.absolute top="350" left="550" width="400" }
+![](./assets/irradiance-spectrometer.png){.absolute top="450" left="850" width="250" }
+:::
+::::
+
+## {background-image="./assets/robot-team/annotated-drone.svg" background-size="contain"}
+
+
+## Physical Sensing: Autonomous Boat {.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+- Maritime Robotics Otter
+  - 20 hr endurance
+  - fully autonomous
+- 3 Eureka Manta-40 Multi-Probes
+  - Blue-Green Algae, Chlorophyll
+  - Colored Dissolved Organic Matter
+  - Total dissolved solids
+  - Crude Oil, Refined Fuels, Tryptophan
+  - Dissolved Oxygen & Total Dissolved Gas
+  - Temperature, Turbidity
+  - Ions: $\mathrm{NH_4^+}$, $\mathrm{Br^{-}}$, $\mathrm{Ca^{2+}}$, $\mathrm{Cl^{-}}$, $\mathrm{NO_3^{-}}$, $\mathrm{Na^{+}}$
+  - ... and more
+:::
+
+::: {.column width="45%"}
+![](./assets/robot-team/otter.png){.absolute top="100" width="400"}
+![](./assets/robot-team/water-probes.jpg){.absolute top="400" width="400"}
+:::
+::::
+
+## Real Time Processing/Georectification {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Our HSI is a "pushbroom" camera which generates images one scanline at a time
+- To use the sampled spectra, each pixel must be georeferenced to a local coordinate system
+- We accomplish this using the onboard IMU/GPS together with a sequence of transformations
+:::
+::: {.column width="50%"}
+![](./assets/robot-team/georectification.svg){.absolute width="700"}
+![](./assets/robot-team/georectification-equations.png){.absolute top="450" left="-50" width="600"}
+:::
+::::
+
+## {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- Once georeferenced, images are resampled to a regular grid at desired resolution
+- To account for variability of incident light, the georectified datacube is then converted from Radiance to Reflectance
+  - Uses sampled downwelling irradiance spectrum
+  - Assumes surface exhibits Lambertian (diffuse) reflectance
+- For a HSI of size $462\times 1600\times 1000$, full processing pipeline takes ~5s for a final resolution of 20 cm.
+- HSI are typically configured to capture every 7-10 seconds
+- On-board processing enables generation of data products in *real-time*
+:::
+::: {.column width="50%"}
+![](./assets/robot-team/pipeline-figure.svg){.absolute width="650"}
+:::
+::::
+
+## {background-image="./assets/HyperSpectralInfoGraphic.png" background-size="contain"}
+
+
+##  {.smaller}
+
+**Application: Supervised Machine Learning for Estimation of Chemicals-of-Concern**
+
+::::{.columns}
+::: {.column width="50%"}
+- $>3$ Tb of HSI captured by drone for entire pond
+- Boat provides in-situ reference measurements
+- Collections from 3 different days
+- **Goal 1**: Train a ML model to map HSI spectra to chemical concentrations
+- **Goal 2**: Use model to produce wide-area map of concentrations in entire pond
+- Utilize a *super-learner* approach combining predictions of multiple individual ML learners[^1]
+
+[^1]: See [@wolpert-stacked] for stacked generalization method
+
+
+:::
+::: {.column width="50%"}
+
+![](./assets/robot-team/CO_dataMap.png){.absolute top="50" width="600"}
+![](./assets/robot-team/marginal-hist.png){.absolute top="425" width="400"}
+
+:::
+::::
+
+##
+**Example model fit for CDOM:**
+![](./assets/robot-team/cdom-scatterplot.png){.absolute top="200" left="-100" width="600"}
+![](./assets/robot-team/cdom-qqplot.png){.absolute top="200" left="600" width="600"}
+
+##
+
+![](./assets/robot-team/cdom-importance.png)
+
+
+## {background-image="./assets/robot-team/CrudeOil-CDOM-Maps.png" background-size="contain"}
+
+## Application: Unsupervised Classification {.smaller}
+
+::::{.columns}
+:::{.column width="50%"}
+- A common approach to reflectance modeling for HSI imagery is *spectral unmixing* using a combination of endmember spectra[^1]
+- **Goal:** use unsupervised ML techniques to *discover* endmembers, i.e. *Is there something unexpected in the water?*
+- Utilize *Self Organizing Maps* and *Generative Topographic Maps* for interpretable classes
+- Demonstrate application for Rhodamine dye plume
+
+[^1]: [@spectral-unmixing]
+
+:::
+:::{.column width="50%"}
+![](./assets/robot-team/boat-and-dye.png){.absolute top="90" left="650" width="400"}
+![](./assets/robot-team/SOM_demo.svg){.absolute top="350" width="400"}
+![](./assets/robot-team/som-diagram.svg){.absolute top="350" left="870" width="400"}
+:::
+::::
+
+## Summary & Next Steps
+
+![](./assets/robot-team-table.png){.absolute left="300" width="500"}
+
+
+# Project 2: MINTS Air Quality Network  {background-image="./assets/sharedair-site.gif"}
+
+## Motivation
+
+for actionable insights we need two things:
+1. Data availability (processing pipeline)
+2. Understanding of the data (uncertainty quantification, time-series modeling)
+
+
+## Physical Sensing: Sensors / Network
+
+## Physical Sensing: Containerized Data Pipeline for Real Time Visualization
+
+## Uncertainty Quantification for Low-Cost Sensors
+
+## Physics-Based Time-Series Modelling
+- HAVOK + UDE
+- HNN + Auto Encoder
+
+## Next Steps
+
+
+# Project 3: Chemical Data Assimilation for Indoor Air Quality
+
+## Physical Sensing
+
+- Automated instrument data acquisition and networking
+- Processing and Storage Pipeline (NodeRed + InfluxDB + Grafana)
+- Preliminary Data Collection
+
+##
+
+![](./assets/chemical-data-assimilation/LabOverview-noap.png)
+
+## Characterization of Indoor Photolysis
+
+![](./assets/photolysis-infographic.png)
+
+
+##
+
+- Slide on how J are computed, i.e. $J = \int I(\lambda)\sigma(\lambda, T)\Phi(\lambda, T) d\lambda$
+- Scraping data from MPI-Mainz UV-VIS database
+- Slide on GPR fit of $\sigma$ for ozone as an example
+- Slide on GPR fit for $\Phi$
+- Slide on capture of irradiance spectra and conversion to proper units
+- Final slide showing all three
+
+## Chemical Data Assimilation
+
+
+## References
+
+
+
