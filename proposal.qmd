@@ -421,7 +421,10 @@ Resolution comparison figure from [@resolution-comparison]
 
 - Can we identify acute pollution events distinctly from background diurnal variation?
 - Can we construct short-term (10-30 min) using data available from a low-cost sensro?
-- Suggested approach: Hankel Alternative View of Koopman (HAVOK) + Universal Differential Equations
+- Suggested approach: Hankel Alternative View of Koopman (HAVOK)[^1] + Universal Differential Equations[^2]
+
+[^1]: [@havok]
+[^2]: [@ude-paper]
 
 ## {.smaller}
 
@@ -470,6 +473,10 @@ Resolution comparison figure from [@resolution-comparison]
 ![](./assets/air-quality-network-table.png){.absolute left="300" width="500"}
 
 # Project 3: Chemical Data Assimilation for Indoor Air Quality
+
+## Motivation
+
+
 
 ## Physical Sensing
 
