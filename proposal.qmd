@@ -307,25 +307,167 @@ Resolution comparison figure from [@resolution-comparison]
 
 # Project 2: MINTS Air Quality Network  {background-image="./assets/sharedair-site.gif"}
 
-## Motivation
+## {.smaller}
 
-for actionable insights we need two things:
-1. Data availability (processing pipeline)
-2. Understanding of the data (uncertainty quantification, time-series modeling)
+**Guiding Question: How can we utilize time series data from low-cost AQ monitors to produce actionable insights?**
 
+:::: {.columns}
+::: {.column width="55%"}
+
+- reference monitors range in price from the order of \$10,000 to \$100,000 and more.[^1]
+- EPA guidelines for criteria pollutants are set at 8 and 24 hour averages.[^2]
+- However PM levels display high spatio-temporal variability meaning 24 hr averages mask acute exposures
+- Price of reference instruments is prohibitive
+- **Need**: A dense network of low-cost air quality monitors with high sampling rates
+
+[^1]: Source: [@epa-low-cost]
+
+[^2]: Source: [@naaqs]
+
+:::
+::: {.column width="45%"}
+
+![](./assets/air-network/dallas-aq-article.png){.absolute top="100" width="300"}
+![](./assets/air-network/dallas-aq-article-2.png){.absolute top="100" left="900" width="350"}
+![](./assets/air-network/pm-averaging.png){.absolute top="500" width="600"}
+
+:::
+::::
 
 ## Physical Sensing: Sensors / Network
 
-## Physical Sensing: Containerized Data Pipeline for Real Time Visualization
+:::: {.columns}
+::: {.column width="50%"}
 
-## Uncertainty Quantification for Low-Cost Sensors
+![](./assets/air-network/sensor-hierarchy.png)
+:::
+::: {.column width="50%"}
 
-## Physics-Based Time-Series Modelling
-- HAVOK + UDE
-- HNN + Auto Encoder
+![](./assets/air-network/central-node.png){.absolute top="125" left="600" width="300"}
+![](./assets/air-network/lora-node.png){.absolute top="150" left="900" width="300"}
+![](./assets/air-network/lora-nodes-calibration.png){.absolute top="475" left="0" width="400"}
 
-## Next Steps
+:::
+::::
 
+## Data Access {.smaller}
+**Containerized Data Pipeline for Real Time Processing & Visualization**
+
+:::: {.columns}
+::: {.column width="50%"}
+- Open source containerized tools provide a flexible, maintainable, and reproducible data backend
+- **NodeRed**: processing of real time data streams
+- **InfluxDB**: time series database for high cardinality data
+- **Grafana**: Real time visualization and dashboarding
+- **Quarto**: A literate programming tool for reproducible documentation
+- **OSN**: long term, open access data storage in S3 buckets
+
+:::
+::: {.column width="50%"}
+
+![](./assets/air-network/docker-elements.png){.absolute width="350"}
+![](./assets/air-network/osn-logo.jpg){.absolute top="550" width="400"}
+
+:::
+::::
+
+## {background-video="./assets/air-network/dashboards-clip.mp4" background-video-loop="true" background-video-muted="true"}
+
+<!-- ![](./assets/air-network/dashboards-clip.mp4) -->
+
+
+
+## Data Usability: Uncertainty Quantification for Low-Cost Sensors {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- For the low-cost sensor data to be *usable* we need to provide both measurements *and* uncertainty estimates
+- Low-cost sensors like our IPS7100 (PM) and BME680 (temp, press, etc) tend to have highly conservative uncertainty estimates to protect the manufacturer
+- We need tools to asses sensor uncertainty from the time series data themselves
+:::
+
+::: {.column width="50%"}
+
+![](./assets/air-network/pm-timeseries.png)
+
+:::
+::::
+
+
+## {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Representativeness**: compute standard deviation & mean absolute deviation over a rolling window
+- **Intrinsic** utilize a temporal variogram to assess variance at a measurement lag of 0 seconds.
+- Temporal semi-variogram for time series $Z(t)$ is defined as $\gamma(\Delta t) = \frac{1}{2}\text{Var}\Big(Z(t+\Delta t)-Z(t)\Big)$
+- We estimate the *empirical variogram* as
+\begin{equation}
+    \hat{\gamma}(\Delta t) = \frac{1}{2N}\sum_{i=1}^{N}\Big[ Z(t_i + \Delta t) - Z(t_i) \Big]^2
+\end{equation}
+- We then model $\hat{\gamma}(\Delta t)$ and extrapolate to 0 to obtain the *nugget*
+:::
+::: {.column width="50%"}
+![](./assets/air-network/variogram.png)
+
+- The nugget is half the expected variance between samples taken at the same time. If there were no intrinsic uncertainty, this would be 0.
+- I've written a Julia package to rapidly compute $\hat{\gamma}$, fit a variety of variogram models, and compute the resulting nugget.
+:::
+::::
+
+
+## Actionable Insights: Physics-Based Time Series Modeling with ML
+
+- Can we identify acute pollution events distinctly from background diurnal variation?
+- Can we construct short-term (10-30 min) using data available from a low-cost sensro?
+- Suggested approach: Hankel Alternative View of Koopman (HAVOK) + Universal Differential Equations
+
+## {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- Koopman operator theory describes the time evolution of observables defined on dynamical systems
+- Dynamic Mode Decomposition estimates the Koopman operator using matrix methods
+- HAVOK combines DMD with the identification of external forcing to produce a model of the form
+\begin{equation}
+    \frac{d}{dt}\mathbf{v}(t) = A\mathbf{v}(t) + \mathbf{b}v_r(t)
+\end{equation}
+- The resulting model on the embedded coordinates $v_i(t)$ can be inverted to reconstruct the original time series
+- I have implemented this technique to model our time series data
+
+:::
+::: {.column width="50%"}
+
+![](./assets/air-network/havok_pred_x.png){.absolute top="-35" width="500"}
+![](./assets/air-network/v1_forcing_identified.png){.absolute top="325" width="500"}
+:::
+::::
+
+## {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- The forcing function does a good job at identifying pollution events
+- The model integrates well for ~1-2 hours. Beyond this, errors begin to accumulate
+- Clearly the "Mostly Linear" assumption is not perfect.
+- Approach: Fit missing nonlinear terms using a Neural Network
+\begin{equation}
+    \frac{d}{dt}\mathbf{v}(t) = A\mathbf{v}(t) + \text{NN}(\mathbf{v},t) + \mathbf{b}v_r(t)
+\end{equation}
+- Use SINDy / Symbolic regression to identify the function form of the missing dynamics
+:::
+::: {.column width="50%"}
+
+![](./assets/air-network/timeseries_reconstructed_embedding.png)
+![](./assets/air-network/attractor_w_forcing.png){.absolute top="400" width="450"}
+:::
+::::
+
+
+## Summary & Next Steps
+
+![](./assets/air-quality-network-table.png){.absolute left="300" width="500"}
 
 # Project 3: Chemical Data Assimilation for Indoor Air Quality
 
@@ -337,7 +479,7 @@ for actionable insights we need two things:
 
 ##
 
-![](./assets/chemical-data-assimilation/LabOverview-noap.png)
+![](./assets/chemical-data-assimilation/LabOverview-noap.png){.absolute loop="true"}
 
 ## Characterization of Indoor Photolysis
 
@@ -354,6 +496,13 @@ for actionable insights we need two things:
 - Final slide showing all three
 
 ## Chemical Data Assimilation
+
+
+## Summary & Next Steps
+
+![](./assets/chemical-data-assimilation-table.png){.absolute left="300" width="500"}
+
+## Thank you for listening!
 
 
 ## References

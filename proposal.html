@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.427">
 
   <meta name="author" content="John Waczak">
-  <meta name="dcterms.date" content="2023-10-31">
+  <meta name="dcterms.date" content="2023-11-01">
   <title>Physcial Sensing and Physics-based Machine Learning for Actionable Environmental Insights</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -355,7 +355,7 @@ John Waczak
 </div>
 </div>
 
-  <p class="date">2023-10-31</p>
+  <p class="date">2023-11-01</p>
 </section>
 <section>
 <section id="motivation" class="title-slide slide level1 center">
@@ -579,7 +579,7 @@ John Waczak
 <p><img data-src="./assets/robot-team/CO_dataMap.png" class="absolute" style="top: 50px; width: 600px; "> <img data-src="./assets/robot-team/marginal-hist.png" class="absolute" style="top: 425px; width: 400px; "></p>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="spectral-unmixing">(<a href="#/references" role="doc-biblioref" onclick="">Wei and Wang 2020</a>)</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Source: <span class="citation" data-cites="epa-low-cost">(<a href="#/references" role="doc-biblioref" onclick="">Conner et al. 2018</a>)</span></p></li></ol></aside></section>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p><strong>Example model fit for CDOM:</strong> <img data-src="./assets/robot-team/cdom-scatterplot.png" class="absolute" style="top: 200px; left: -100px; width: 600px; "> <img data-src="./assets/robot-team/cdom-qqplot.png" class="absolute" style="top: 200px; left: 600px; width: 600px; "></p>
@@ -605,7 +605,7 @@ John Waczak
 <p><img data-src="./assets/robot-team/boat-and-dye.png" class="absolute" style="top: 90px; left: 650px; width: 400px; "> <img data-src="./assets/robot-team/SOM_demo.svg" class="absolute" style="top: 350px; width: 400px; "> <img data-src="./assets/robot-team/som-diagram.svg" class="absolute" style="top: 350px; left: 870px; width: 400px; "></p>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="spectral-unmixing">(<a href="#/references" role="doc-biblioref" onclick="">Wei and Wang 2020</a>)</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Source: <span class="citation" data-cites="epa-low-cost">(<a href="#/references" role="doc-biblioref" onclick="">Conner et al. 2018</a>)</span></p></li></ol></aside></section>
 <section id="summary-next-steps" class="slide level2">
 <h2>Summary &amp; Next Steps</h2>
 <p><img data-src="./assets/robot-team-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
@@ -615,28 +615,138 @@ John Waczak
 <h1>Project 2: MINTS Air Quality Network</h1>
 
 </section>
-<section id="motivation-1" class="slide level2">
-<h2>Motivation</h2>
-<p>for actionable insights we need two things: 1. Data availability (processing pipeline) 2. Understanding of the data (uncertainty quantification, time-series modeling)</p>
-</section>
+<section id="section-11" class="slide level2 smaller">
+<h2></h2>
+<p><strong>Guiding Question: How can we utilize time series data from low-cost AQ monitors to produce actionable insights?</strong></p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>reference monitors range in price from the order of $10,000 to $100,000 and more.<sup>1</sup></li>
+<li>EPA guidelines for criteria pollutants are set at 8 and 24 hour averages.<sup>2</sup></li>
+<li>However PM levels display high spatio-temporal variability meaning 24 hr averages mask acute exposures</li>
+<li>Price of reference instruments is prohibitive</li>
+<li><strong>Need</strong>: A dense network of low-cost air quality monitors with high sampling rates</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="./assets/air-network/dallas-aq-article.png" class="absolute" style="top: 100px; width: 300px; "> <img data-src="./assets/air-network/dallas-aq-article-2.png" class="absolute" style="top: 100px; left: 900px; width: 350px; "> <img data-src="./assets/air-network/pm-averaging.png" class="absolute" style="top: 500px; width: 600px; "></p>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Source: <span class="citation" data-cites="epa-low-cost">(<a href="#/references" role="doc-biblioref" onclick="">Conner et al. 2018</a>)</span></p></li><li id="fn4"><p>Source: <span class="citation" data-cites="naaqs">(<a href="#/references" role="doc-biblioref" onclick=""><span>“NAAQS Table”</span> 2023</a>)</span></p></li></ol></aside></section>
 <section id="physical-sensing-sensors-network" class="slide level2">
 <h2>Physical Sensing: Sensors / Network</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/sensor-hierarchy.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/central-node.png" class="absolute" style="top: 125px; left: 600px; width: 300px; "> <img data-src="./assets/air-network/lora-node.png" class="absolute" style="top: 150px; left: 900px; width: 300px; "> <img data-src="./assets/air-network/lora-nodes-calibration.png" class="absolute" style="top: 475px; left: 0px; width: 400px; "></p>
+</div>
+</div>
 </section>
-<section id="physical-sensing-containerized-data-pipeline-for-real-time-visualization" class="slide level2">
-<h2>Physical Sensing: Containerized Data Pipeline for Real Time Visualization</h2>
-</section>
-<section id="uncertainty-quantification-for-low-cost-sensors" class="slide level2">
-<h2>Uncertainty Quantification for Low-Cost Sensors</h2>
-</section>
-<section id="physics-based-time-series-modelling" class="slide level2">
-<h2>Physics-Based Time-Series Modelling</h2>
+<section id="data-access" class="slide level2 smaller">
+<h2>Data Access</h2>
+<p><strong>Containerized Data Pipeline for Real Time Processing &amp; Visualization</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>HAVOK + UDE</li>
-<li>HNN + Auto Encoder</li>
+<li>Open source containerized tools provide a flexible, maintainable, and reproducible data backend</li>
+<li><strong>NodeRed</strong>: processing of real time data streams</li>
+<li><strong>InfluxDB</strong>: time series database for high cardinality data</li>
+<li><strong>Grafana</strong>: Real time visualization and dashboarding</li>
+<li><strong>Quarto</strong>: A literate programming tool for reproducible documentation</li>
+<li><strong>OSN</strong>: long term, open access data storage in S3 buckets</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/docker-elements.png" class="absolute" style="width: 350px; "> <img data-src="./assets/air-network/osn-logo.jpg" class="absolute" style="top: 550px; width: 400px; "></p>
+</div>
+</div>
+</section>
+<section id="section-12" class="slide level2" data-background-video="./assets/air-network/dashboards-clip.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+<!-- ![](./assets/air-network/dashboards-clip.mp4) -->
+</section>
+<section id="data-usability-uncertainty-quantification-for-low-cost-sensors" class="slide level2 smaller">
+<h2>Data Usability: Uncertainty Quantification for Low-Cost Sensors</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>For the low-cost sensor data to be <em>usable</em> we need to provide both measurements <em>and</em> uncertainty estimates</li>
+<li>Low-cost sensors like our IPS7100 (PM) and BME680 (temp, press, etc) tend to have highly conservative uncertainty estimates to protect the manufacturer</li>
+<li>We need tools to asses sensor uncertainty from the time series data themselves</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/pm-timeseries.png"></p>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2 smaller">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Representativeness</strong>: compute standard deviation &amp; mean absolute deviation over a rolling window</li>
+<li><strong>Intrinsic</strong> utilize a temporal variogram to assess variance at a measurement lag of 0 seconds.</li>
+<li>Temporal semi-variogram for time series <span class="math inline">\(Z(t)\)</span> is defined as <span class="math inline">\(\gamma(\Delta t) = \frac{1}{2}\text{Var}\Big(Z(t+\Delta t)-Z(t)\Big)\)</span></li>
+<li>We estimate the <em>empirical variogram</em> as <span class="math display">\[\begin{equation}
+  \hat{\gamma}(\Delta t) = \frac{1}{2N}\sum_{i=1}^{N}\Big[ Z(t_i + \Delta t) - Z(t_i) \Big]^2
+\end{equation}\]</span></li>
+<li>We then model <span class="math inline">\(\hat{\gamma}(\Delta t)\)</span> and extrapolate to 0 to obtain the <em>nugget</em></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/variogram.png"></p>
+<ul>
+<li>The nugget is half the expected variance between samples taken at the same time. If there were no intrinsic uncertainty, this would be 0.</li>
+<li>I’ve written a Julia package to rapidly compute <span class="math inline">\(\hat{\gamma}\)</span>, fit a variety of variogram models, and compute the resulting nugget.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="actionable-insights-physics-based-time-series-modeling-with-ml" class="slide level2">
+<h2>Actionable Insights: Physics-Based Time Series Modeling with ML</h2>
+<ul>
+<li>Can we identify acute pollution events distinctly from background diurnal variation?</li>
+<li>Can we construct short-term (10-30 min) using data available from a low-cost sensro?</li>
+<li>Suggested approach: Hankel Alternative View of Koopman (HAVOK) + Universal Differential Equations</li>
 </ul>
 </section>
-<section id="next-steps" class="slide level2">
-<h2>Next Steps</h2>
+<section id="section-14" class="slide level2 smaller">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Koopman operator theory describes the time evolution of observables defined on dynamical systems</li>
+<li>Dynamic Mode Decomposition estimates the Koopman operator using matrix methods</li>
+<li>HAVOK combines DMD with the identification of external forcing to produce a model of the form <span class="math display">\[\begin{equation}
+  \frac{d}{dt}\mathbf{v}(t) = A\mathbf{v}(t) + \mathbf{b}v_r(t)
+\end{equation}\]</span></li>
+<li>The resulting model on the embedded coordinates <span class="math inline">\(v_i(t)\)</span> can be inverted to reconstruct the original time series</li>
+<li>I have implemented this technique to model our time series data</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/havok_pred_x.png" class="absolute" style="top: -35px; width: 500px; "> <img data-src="./assets/air-network/v1_forcing_identified.png" class="absolute" style="top: 325px; width: 500px; "></p>
+</div>
+</div>
+</section>
+<section id="section-15" class="slide level2 smaller">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>The forcing function does a good job at identifying pollution events</li>
+<li>The model integrates well for ~1-2 hours. Beyond this, errors begin to accumulate</li>
+<li>Clearly the “Mostly Linear” assumption is not perfect.</li>
+<li>Approach: Fit missing nonlinear terms using a Neural Network <span class="math display">\[\begin{equation}
+  \frac{d}{dt}\mathbf{v}(t) = A\mathbf{v}(t) + \text{NN}(\mathbf{v},t) + \mathbf{b}v_r(t)
+\end{equation}\]</span></li>
+<li>Use SINDy / Symbolic regression to identify the function form of the missing dynamics</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-network/timeseries_reconstructed_embedding.png"> <img data-src="./assets/air-network/attractor_w_forcing.png" class="absolute" style="top: 400px; width: 450px; "></p>
+</div>
+</div>
+</section>
+<section id="summary-next-steps-1" class="slide level2">
+<h2>Summary &amp; Next Steps</h2>
+<p><img data-src="./assets/air-quality-network-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
 </section></section>
 <section>
 <section id="project-3-chemical-data-assimilation-for-indoor-air-quality" class="title-slide slide level1 center">
@@ -651,15 +761,15 @@ John Waczak
 <li>Preliminary Data Collection</li>
 </ul>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
-
-<img data-src="./assets/chemical-data-assimilation/LabOverview-noap.png" class="r-stretch"></section>
+<p><img data-src="./assets/chemical-data-assimilation/LabOverview-noap.png" class="absolute" style="" loop="true"></p>
+</section>
 <section id="characterization-of-indoor-photolysis" class="slide level2">
 <h2>Characterization of Indoor Photolysis</h2>
 
 <img data-src="./assets/photolysis-infographic.png" class="r-stretch"></section>
-<section id="section-12" class="slide level2">
+<section id="section-17" class="slide level2">
 <h2></h2>
 <ul>
 <li>Slide on how J are computed, i.e.&nbsp;<span class="math inline">\(J = \int I(\lambda)\sigma(\lambda, T)\Phi(\lambda, T) d\lambda\)</span></li>
@@ -673,20 +783,30 @@ John Waczak
 <section id="chemical-data-assimilation" class="slide level2">
 <h2>Chemical Data Assimilation</h2>
 </section>
+<section id="summary-next-steps-2" class="slide level2">
+<h2>Summary &amp; Next Steps</h2>
+<p><img data-src="./assets/chemical-data-assimilation-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
+</section>
+<section id="thank-you-for-listening" class="slide level2">
+<h2>Thank you for listening!</h2>
+</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div class="footer footer-default">
 
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-epa-low-cost" class="csl-entry" role="listitem">
+Conner, Teri, Andrea Clements, Ronald Williams, and Amanda Kaufman. 2018. <span>“How to Evaluate Low-Cost Sensors by Collocation with Federal Reference Monitors.”</span> January 2018. <a href="https://www.epa.gov/sites/default/files/2018-01/documents/collocation_instruction_guide.pdf">https://www.epa.gov/sites/default/files/2018-01/documents/collocation_instruction_guide.pdf</a>.
+</div>
 <div id="ref-resolution-comparison" class="csl-entry" role="listitem">
 Jimenez, Raquel B, Kevin J Lane, Lucy R Hutyra, and M Patricia Fabian. 2022. <span>“Spatial Resolution of Normalized Difference Vegetation Index and Greenness Exposure Misclassification in an Urban Cohort.”</span> <em>Journal of Exposure Science &amp; Environmental Epidemiology</em> 32 (2): 213–22.
 </div>
+<div id="ref-naaqs" class="csl-entry" role="listitem">
+<span>“NAAQS Table.”</span> 2023. March 15, 2023. <a href="https://www.epa.gov/criteria-air-pollutants/naaqs-table">https://www.epa.gov/criteria-air-pollutants/naaqs-table</a>.
+</div>
 <div id="ref-ude-paper" class="csl-entry" role="listitem">
 Rackauckas, Christopher, Yingbo Ma, Julius Martensen, Collin Warner, Kirill Zubov, Rohit Supekar, Dominic Skinner, Ali Ramadhan, and Alan Edelman. 2020. <span>“Universal Differential Equations for Scientific Machine Learning.”</span> <em>arXiv Preprint arXiv:2001.04385</em>.
-</div>
-<div id="ref-spectral-unmixing" class="csl-entry" role="listitem">
-Wei, Jiaojiao, and Xiaofei Wang. 2020. <span>“An Overview on Linear Unmixing of Hyperspectral Data.”</span> <em>Mathematical Problems in Engineering</em> 2020: 1–12.
 </div>
 </div>
 </section></section>
