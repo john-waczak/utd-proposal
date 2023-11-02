@@ -18,17 +18,20 @@ bibliography: references.bib
 
 ::: {.fragment .fade-in}
 ![](./assets/motivation/hurricanes.png){.absolute top="150" left="-30" width="400" }
-![](./assets/motivation/typhoon-article.png){.absolute top="150" left="600" width="400" }
+![](./assets/motivation/ecmwf-report.png){.absolute top="150" left="600" width="400" }
+:::
+
+::: {.fragment .fade-in}
+![](./assets/motivation/typhoon-article.png){.absolute top="200" left="630" width="400" }
 :::
 
 ::: {.fragment .fade-in}
 ![](./assets/motivation/maui-article-1.png){.absolute top="250" left="0" width="400" }
-![](./assets/motivation/canada-article-2.png){.absolute top="250" left="630" width="400" }
+![](./assets/motivation/canada-article-2.png){.absolute top="250" left="660" width="400" }
 :::
 
 ::: {.fragment .fade-in}
 ![](./assets/motivation/canada-article-1.png){.absolute top="350" left="30" width="400" }
-![](./assets/motivation/ecmwf-report.png){.absolute top="350" left="660" width="400" }
 :::
 
 ::: {.fragment .fade-in}
@@ -424,7 +427,7 @@ Resolution comparison figure from [@resolution-comparison]
 ## Actionable Insights: Physics-Based Time Series Modeling with ML
 
 - Can we identify acute pollution events distinctly from background diurnal variation?
-- Can we construct short-term (10-30 min) using data available from a low-cost sensro?
+- Can we construct short-term (10-30 min) using data available from a low-cost sensor?
 - My approach: Hankel Alternative View of Koopman (HAVOK)[^5] + Universal Differential Equations[^6]
 
 [^5]: [@havok]
@@ -559,11 +562,11 @@ Resolution comparison figure from [@resolution-comparison]
 
 
 ## {.smaller}
-### Chemical Mechanism & Data Assimilation 
+### Chemical Mechanism & Data Assimilation
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {style="font-size: 75%;"}
+::: {style="font-size: 70%;"}
 - **Goal:** Utilized reference instruments + Photolysis rates to model indoor chemical kinetics
 - **Goal:** Use data assimilation to infer concentrations of reactive/trace species below detection limits
 - I have implemented two detailed chemical mechanisms in the Julia programming language
@@ -572,9 +575,6 @@ Resolution comparison figure from [@resolution-comparison]
 - `DifferentialEquations.jl` offers cutting-edge optimized ODE solvers for *stiff* systems
 - Given a set of reactions, my code automatically generates reaction rates, derivative functions, the Jacobian, etc.
 - Using *data assimilation* we can infer the abundance of reactive species like OH and other trace gasses that are below instrument detection limits
-
-[^9]: [@autochem]
-[^10]: [@mcm]
 
 :::
 :::
@@ -593,6 +593,9 @@ All elementary reactions taken together form a system whose dynamics are describ
     r_j = k_j\prod\limits_{\ell}^{S_{\ell j}>0} u_{\ell}^{S_{ij}}
   \end{cases}
 \end{equation}
+
+[^9]: [@autochem]
+[^10]: [@mcm]
 
 :::
 ::::
