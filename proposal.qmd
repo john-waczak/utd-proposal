@@ -10,6 +10,53 @@ format:
 bibliography: references.bib
 ---
 
+## {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size: 75%;"}
+**Papers I've Contributed To:**
+
+1. [Autonomous learning of new environments with a robotic team employing hyper-spectral remote sensing, comprehensive in-situ sensing and machine learning](https://www.mdpi.com/1424-8220/21/6/2240/pdf)
+2. [Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales](https://www.mdpi.com/1424-8220/22/11/4240)
+3. [Data-Driven EEG Band Discovery with Decision Trees](https://www.mdpi.com/1424-8220/22/8/3048)
+4. [Unsupervised Blink Detection Using Eye Aspect Ratio Values](https://www.preprints.org/manuscript/202203.0200/download/final_file)
+
+
+**Code Repositories Created:**
+
+1. [RobotTeam.jl](https://github.com/john-waczak/RobotTeam.jl)
+2. [SelfOrganizingMaps.jl](https://github.com/john-waczak/SelfOrganizingMaps.jl/tree/main/docs/src)
+3. [GenerativeTopographicMapping.jl](https://github.com/john-waczak/GenerativeTopographicMapping.jl/tree/main/notes)
+4. [MLJGaussianProcesses.jl](https://github.com/john-waczak/MLJGaussianProcesses.jl/tree/main/src)
+5. [TimeSeriesTools.jl](https://github.com/john-waczak/TimeSeriesTools.jl)
+6. [AutoChem.jl](https://github.com/john-waczak/AutoChem.jl)
+7. [Photolysis.jl](https://github.com/john-waczak/Photolysis.jl/tree/613c749cc2cb39002836531fcd38ab58057dd9f2)
+
+
+:::
+:::
+::: {.column width="50%"}
+
+::: {style="font-size: 75%;"}
+**Papers in Progress (working titles):**
+
+1. Processing Pushbroom Hyperspectral Imagery for Real-time Application by an Autonomous Robotic Team
+2. Rapid quantification of chemical concentrations by an autonomous robotic team using ensemble learning with conformal prediction
+3. Time Series Methods for Uncertainty Quantification of IoT and Biometric Sensors
+4. Time Series Modeling of Particulate Matter Employing a Hybrid HAVOK-UDE Approach
+5. Comprehensively Calculating Indoor Photolysis Rates
+6. Development of a chemical data assimilation framework for indoor air quality assessment
+
+**Datasets generated**
+
+1. [Robot Team Imagery](https://ncsa.osn.xsede.org/ees230012-bucket01/RobotTeam/)
+2. [Air Quality Network Data](https://ncsa.osn.xsede.org/ees230012-bucket01/AirQualityNetwork/)
+3. [Photolysis Reference Data](https://ncsa.osn.xsede.org/ees230012-bucket01/ReferenceData/Photolysis/)
+
+:::
+:::
+::::
 
 
 # Motivation
@@ -288,16 +335,37 @@ Resolution comparison figure from [@resolution-comparison]
 
 ## {background-image="./assets/robot-team/CrudeOil-CDOM-Maps.png" background-size="contain"}
 
+
+## Uncertainty Quantification: Conformal Prediction {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- By further partitioning our data into distinct $\mathcal{D}_{\text{train}}, \mathcal{D}_{\text{test}}, \mathcal{D}_{\text{cal}}$ sets we can utilize conformal prediction to generate robust, distribution free, confidence intervals for our ML predictions
+- Conformal prediction (CP) is model agnostic
+- By using the $\mathcal{D}_{\text{cal}}$ holdout set we can calibrate a heuristic uncertainty score like the residual error $\lvert y - \hat{y}\rvert$ into a suitable confidence interval with coverage $\alpha$.[^2]
+
+[^2]: [@conformal-prediction]
+
+
+
+:::
+::: {.column width="50%"}
+![](./assets/robot-team/conformal-prediction.gif)
+:::
+::::
+
+
 ## Application: Unsupervised Classification {.smaller}
 
 ::::{.columns}
 :::{.column width="50%"}
-- A common approach to reflectance modeling for HSI imagery is *spectral unmixing* using a combination of endmember spectra[^2]
+- A common approach to reflectance modeling for HSI imagery is *spectral unmixing* using a combination of endmember spectra[^3]
 - **Goal:** use unsupervised ML techniques to *discover* endmembers, i.e. *Is there something unexpected in the water?*
 - Utilize *Self Organizing Maps* and *Generative Topographic Maps* for interpretable classes
 - Demonstrate application for Rhodamine dye plume
 
-[^2]: [@spectral-unmixing]
+[^3]: [@spectral-unmixing]
 
 :::
 :::{.column width="50%"}
@@ -321,15 +389,15 @@ Resolution comparison figure from [@resolution-comparison]
 :::: {.columns}
 ::: {.column width="55%"}
 
-- reference monitors range in price from the order of \$10,000 to \$100,000 and more.[^3]
-- EPA guidelines for criteria pollutants are set at 8 and 24 hour averages.[^4]
+- reference monitors range in price from the order of \$10,000 to \$100,000 and more.[^4]
+- EPA guidelines for criteria pollutants are set at 8 and 24 hour averages.[^5]
 - However PM levels display high spatio-temporal variability meaning 24 hr averages mask acute exposures
 - Price of reference instruments is prohibitive
 - **Need**: A dense network of low-cost air quality monitors with high sampling rates
 
-[^3]: Source: [@epa-low-cost]
+[^4]: Source: [@epa-low-cost]
 
-[^4]: Source: [@naaqs]
+[^5]: Source: [@naaqs]
 
 :::
 ::: {.column width="45%"}
@@ -428,10 +496,11 @@ Resolution comparison figure from [@resolution-comparison]
 
 - Can we identify acute pollution events distinctly from background diurnal variation?
 - Can we construct short-term (10-30 min) using data available from a low-cost sensor?
-- My approach: Hankel Alternative View of Koopman (HAVOK)[^5] + Universal Differential Equations[^6]
+- My approach: Hankel Alternative View of Koopman (HAVOK)[^6] + Universal Differential Equations[^7]
 
-[^5]: [@havok]
-[^6]: [@ude-paper]
+[^6]: [@havok]
+
+[^7]: [@ude-paper]
 
 
 
@@ -489,14 +558,15 @@ Resolution comparison figure from [@resolution-comparison]
 :::: {.columns}
 ::: {.column width="55%"}
 
-- Humans spend > 90% of their time indoors[^7]
+- Humans spend > 90% of their time indoors[^8]
 - Construction materials, furnishings, personal care products, household cleaners, etc. all contribute to the pot pourri of indoor air
-- Many household products contain chemicals which can react with contaminants to form harmful secondary products[^8]
+- Many household products contain chemicals which can react with contaminants to form harmful secondary products[^9]
 - Example: Terpenes in citrus based cleaners can react with Ozone to produce Formaldehyde (a carcinogen)
 - To understand Indoor Air Quality we need to understand the chemical dynamics at play
 
-[^7]: [@pollution1989report]
-[^8]: [@nazaroff2004cleaning]
+[^8]: [@pollution1989report]
+
+[^9]: [@nazaroff2004cleaning]
 
 :::
 ::: {.column width="45%"}
@@ -570,8 +640,8 @@ Resolution comparison figure from [@resolution-comparison]
 - **Goal:** Utilized reference instruments + Photolysis rates to model indoor chemical kinetics
 - **Goal:** Use data assimilation to infer concentrations of reactive/trace species below detection limits
 - I have implemented two detailed chemical mechanisms in the Julia programming language
-  1. AutoChem: originally developed by Dr. Lary at NASA (includes ion chemistry)[^9]
-  2. Master Chemical Mechanism: benchmark mechanism in atmospheric chem. with >5,000 species and >16,000 reactions[^10]
+  1. AutoChem: originally developed by Dr. Lary at NASA (includes ion chemistry)[^10]
+  2. Master Chemical Mechanism: benchmark mechanism in atmospheric chem. with >5,000 species and >16,000 reactions[^11]
 - `DifferentialEquations.jl` offers cutting-edge optimized ODE solvers for *stiff* systems
 - Given a set of reactions, my code automatically generates reaction rates, derivative functions, the Jacobian, etc.
 - Using *data assimilation* we can infer the abundance of reactive species like OH and other trace gasses that are below instrument detection limits
@@ -594,8 +664,8 @@ All elementary reactions taken together form a system whose dynamics are describ
   \end{cases}
 \end{equation}
 
-[^9]: [@autochem]
-[^10]: [@mcm]
+[^10]: [@autochem]
+[^11]: [@mcm]
 
 :::
 ::::
@@ -675,6 +745,31 @@ Assimilation step:
 :::
 
 ::::
+
+
+# Extras
+
+## Solar Geometry and Illumination
+
+![](./assets/extras/solar-geometry.png){.absolute left="0" width="300"}
+![](./assets/extras/lambertian.png){.absolute left="400" width="600"}
+![](./assets/extras/cosine-law.png){.absolute top="400" left="0" width="300"}
+
+
+##
+### Gaussian Process Regression
+
+::: {style="font-size: 50%;"}
+\begin{equation}
+  \begin{bmatrix} \mathbf{f} \\ \mathbf{f}_* \end{bmatrix} \sim \mathcal{N}\left(\mathbf{0},\begin{bmatrix} K(X,X)-\sigma_n^2I & K(X,X_*) \\ K(X_*,X) & K(X_*,X_*) \end{bmatrix}\right)
+\end{equation}
+
+\begin{equation}
+  \boxed{p(\mathbf{f}_* \vert X_*, X, \mathbf{y}) = \mathcal{N}\left( K_*^T\left[K + \sigma_n^2 I\right]^{-1}\mathbf{f},\; K_{**}-K_*^T\left[K + \sigma_n^2 I\right]^{-1}K_*\right)}
+\end{equation}
+:::
+
+![](./assets/extras/hpo-fit.svg)
 
 
 ## References
