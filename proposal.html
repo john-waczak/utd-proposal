@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.427">
 
   <meta name="author" content="John Waczak">
-  <meta name="dcterms.date" content="2023-11-01">
+  <meta name="dcterms.date" content="2023-11-02">
   <title>Physcial Sensing and Physics-based Machine Learning for Actionable Environmental Insights</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -355,7 +355,7 @@ John Waczak
 </div>
 </div>
 
-  <p class="date">2023-11-01</p>
+  <p class="date">2023-11-02</p>
 </section>
 <section>
 <section id="motivation" class="title-slide slide level1 center">
@@ -382,6 +382,19 @@ John Waczak
 </section>
 <section id="section" class="slide level2" data-background-image="./assets/mints-ai.png" data-background-size="contain">
 <h2></h2>
+<aside class="notes">
+<p>MINTS-AI: multi-scale, multi-use, integrated, interactive, intelligent sensing and simulation for actionable insights</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-1" class="slide level2" data-background-image="./assets/mints-ai-highlighted.png" data-background-size="contain">
 <h2></h2>
@@ -579,7 +592,7 @@ John Waczak
 <p><img data-src="./assets/robot-team/CO_dataMap.png" class="absolute" style="top: 50px; width: 600px; "> <img data-src="./assets/robot-team/marginal-hist.png" class="absolute" style="top: 425px; width: 400px; "></p>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="havok">(<a href="#/references" role="doc-biblioref" onclick="">Brunton et al. 2017</a>)</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>See <span class="citation" data-cites="wolpert-stacked">(<a href="#/references" role="doc-biblioref" onclick="">Wolpert 1992</a>)</span> for stacked generalization method</p></li></ol></aside></section>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p><strong>Example model fit for CDOM:</strong> <img data-src="./assets/robot-team/cdom-scatterplot.png" class="absolute" style="top: 200px; left: -100px; width: 600px; "> <img data-src="./assets/robot-team/cdom-qqplot.png" class="absolute" style="top: 200px; left: 600px; width: 600px; "></p>
@@ -605,7 +618,7 @@ John Waczak
 <p><img data-src="./assets/robot-team/boat-and-dye.png" class="absolute" style="top: 90px; left: 650px; width: 400px; "> <img data-src="./assets/robot-team/SOM_demo.svg" class="absolute" style="top: 350px; width: 400px; "> <img data-src="./assets/robot-team/som-diagram.svg" class="absolute" style="top: 350px; left: 870px; width: 400px; "></p>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="havok">(<a href="#/references" role="doc-biblioref" onclick="">Brunton et al. 2017</a>)</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="spectral-unmixing">(<a href="#/references" role="doc-biblioref" onclick="">Wei and Wang 2020</a>)</span></p></li></ol></aside></section>
 <section id="summary-next-steps" class="slide level2">
 <h2>Summary &amp; Next Steps</h2>
 <p><img data-src="./assets/robot-team-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
@@ -631,7 +644,7 @@ John Waczak
 <p><img data-src="./assets/air-network/dallas-aq-article.png" class="absolute" style="top: 100px; width: 300px; "> <img data-src="./assets/air-network/dallas-aq-article-2.png" class="absolute" style="top: 100px; left: 900px; width: 350px; "> <img data-src="./assets/air-network/pm-averaging.png" class="absolute" style="top: 500px; width: 600px; "></p>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p><span class="citation" data-cites="havok">(<a href="#/references" role="doc-biblioref" onclick="">Brunton et al. 2017</a>)</span></p></li><li id="fn4"><p><span class="citation" data-cites="ude-paper">(<a href="#/references" role="doc-biblioref" onclick="">Rackauckas et al. 2020</a>)</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Source: <span class="citation" data-cites="epa-low-cost">(<a href="#/references" role="doc-biblioref" onclick="">Conner et al. 2018</a>)</span></p></li><li id="fn4"><p>Source: <span class="citation" data-cites="naaqs">(<a href="#/references" role="doc-biblioref" onclick=""><span>“NAAQS Table”</span> 2023</a>)</span></p></li></ol></aside></section>
 <section id="physical-sensing-sensors-network" class="slide level2">
 <h2>Physical Sensing: Sensors / Network</h2>
 <div class="columns">
@@ -705,7 +718,7 @@ John Waczak
 <ul>
 <li>Can we identify acute pollution events distinctly from background diurnal variation?</li>
 <li>Can we construct short-term (10-30 min) using data available from a low-cost sensro?</li>
-<li>Suggested approach: Hankel Alternative View of Koopman (HAVOK)<sup>1</sup> + Universal Differential Equations<sup>2</sup></li>
+<li>My approach: Hankel Alternative View of Koopman (HAVOK)<sup>1</sup> + Universal Differential Equations<sup>2</sup></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn5"><p><span class="citation" data-cites="havok">(<a href="#/references" role="doc-biblioref" onclick="">Brunton et al. 2017</a>)</span></p></li><li id="fn6"><p><span class="citation" data-cites="ude-paper">(<a href="#/references" role="doc-biblioref" onclick="">Rackauckas et al. 2020</a>)</span></p></li></ol></aside></section>
 <section id="section-14" class="slide level2 smaller">
@@ -753,45 +766,168 @@ John Waczak
 <h1>Project 3: Chemical Data Assimilation for Indoor Air Quality</h1>
 
 </section>
-<section id="guiding-question-what-are-the-key-chemical-drivers-of-indoor-air-quality" class="slide level2">
-<h2>Guiding Question: What are the key chemical drivers of indoor air quality?</h2>
-</section>
-<section id="physical-sensing" class="slide level2">
-<h2>Physical Sensing</h2>
+<section id="motivation-1" class="slide level2 smaller">
+<h2>Motivation</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
 <ul>
+<li>Humans spend &gt; 90% of their time indoors<sup>1</sup></li>
+<li>Construction materials, furnishings, personal care products, household cleaners, etc. all contribute to the pot pourri of indoor air</li>
+<li>Many household products contain chemicals which can react with contaminants to form harmful secondary products<sup>2</sup></li>
+<li>Example: Terpenes in citrus based cleaners can react with Ozone to produce Formaldehyde (a carcinogen)</li>
+<li>To understand Indoor Air Quality we need to understand the chemical dynamics at play</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="./assets/chemical-data-assimilation/nyt-aq-article.png" class="absolute" style="top: 0px; width: 400px; "> <img data-src="./assets/chemical-data-assimilation/aq-article-2.png" class="absolute" style="top: 250px; width: 400px; "></p>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn7"><p><span class="citation" data-cites="pollution1989report">(<a href="#/references" role="doc-biblioref" onclick="">Pollution 1989</a>)</span></p></li><li id="fn8"><p><span class="citation" data-cites="nazaroff2004cleaning">(<a href="#/references" role="doc-biblioref" onclick="">Nazaroff and Weschler 2004</a>)</span></p></li></ol></aside></section>
+<section id="physical-sensing-reference-instruments" class="slide level2 smaller">
+<h2>Physical Sensing: Reference Instruments</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Suite of reference grade instruments including
+<ul>
+<li>Aerosol Mass Spectrometer</li>
+<li>Selected-ion flow-tube mass spectrometer (syft)</li>
+<li>Individual gas spectrometers</li>
+<li>Irradiance spectrometers (for photolysis)</li>
+</ul></li>
 <li>Automated instrument data acquisition and networking</li>
 <li>Processing and Storage Pipeline (NodeRed + InfluxDB + Grafana)</li>
-<li>Preliminary Data Collection</li>
 </ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/chemical-data-assimilation/LabOverview-noap.png"></p>
+</div>
+</div>
 </section>
-<section id="section-16" class="slide level2">
-<h2></h2>
-<p><img data-src="./assets/chemical-data-assimilation/LabOverview-noap.png" class="absolute" style="" loop="true"></p>
-</section>
-<section id="characterization-of-indoor-photolysis" class="slide level2">
+<section id="characterization-of-indoor-photolysis" class="slide level2 smaller">
 <h2>Characterization of Indoor Photolysis</h2>
-
-<img data-src="./assets/photolysis-infographic.png" class="r-stretch"></section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Photolysis is the process whereby molecular bonds are broken by incident photons</li>
+<li>Photolysis rates are characterized by the incident irradiance <span class="math inline">\(I\)</span>, the molecule’s absorption cross section <span class="math inline">\(\sigma\)</span>, and the quantum yield <span class="math inline">\(\phi\)</span></li>
+<li>To understand indoor air chemistry and it’s impact on indoor air quality, we must identify the relevant photolysis reactions at play</li>
+<li>Indoor lighting consists of a variety of light source with different spectral features</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/photolysis-infographic.png"></p>
+</div>
+</div>
+</section>
+<section id="section-16" class="slide level2 smaller">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Cross section and quantum yield data (&gt;8000 data files) scraped from MPI-Mainz UV/VIS Spectral Atlas of Gaseous Molecules of Atmospheric Interest</li>
+<li>Developed a Gaussian Process Regression code to fit resulting data and interpolate</li>
+<li>Measurements using a Ocean Optics spectrometer provide data for <span class="math inline">\(I(\lambda)\)</span> under a variety of lighting conditions at 1 hz sample rate</li>
+<li>Photolysis rates are then estimated by quadrature</li>
+<li><strong>Example</strong>: GPR fit for Ozone absorption cross section</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/chemical-data-assimilation/photolysis/cross-section/o3-data.svg"> <img data-src="./assets/chemical-data-assimilation/photolysis/cross-section/o3-gpr-scatter.svg"></p>
+</div>
+</div>
+</section>
 <section id="section-17" class="slide level2">
 <h2></h2>
-<ul>
-<li>Slide on how J are computed, i.e.&nbsp;<span class="math inline">\(J = \int I(\lambda)\sigma(\lambda, T)\Phi(\lambda, T) d\lambda\)</span></li>
-<li>Scraping data from MPI-Mainz UV-VIS database</li>
-<li>Slide on GPR fit of <span class="math inline">\(\sigma\)</span> for ozone as an example</li>
-<li>Slide on GPR fit for <span class="math inline">\(\Phi\)</span></li>
-<li>Slide on capture of irradiance spectra and conversion to proper units</li>
-<li>Final slide showing all three</li>
-</ul>
+<p><img data-src="./assets/chemical-data-assimilation/photolysis/J_1.png" class="absolute" style="left: 200px; width: 600px; "></p>
 </section>
-<section id="chemical-data-assimilation" class="slide level2">
-<h2>Chemical Data Assimilation</h2>
+<section id="section-18" class="slide level2 smaller">
+<h2></h2>
+<h3 id="chemical-mechanism-data-assimilation">Chemical Mechanism &amp; Data Assimilation</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 75%;">
+<ul>
+<li><strong>Goal:</strong> Utilized reference instruments + Photolysis rates to model indoor chemical kinetics</li>
+<li><strong>Goal:</strong> Use data assimilation to infer concentrations of reactive/trace species below detection limits</li>
+<li>I have implemented two detailed chemical mechanisms in the Julia programming language
+<ol type="1">
+<li>AutoChem: originally developed by Dr.&nbsp;Lary at NASA (includes ion chemistry)<sup>1</sup></li>
+<li>Master Chemical Mechanism: benchmark mechanism in atmospheric chem. with &gt;5,000 species and &gt;16,000 reactions<sup>2</sup></li>
+</ol></li>
+<li><code>DifferentialEquations.jl</code> offers cutting-edge optimized ODE solvers for <em>stiff</em> systems</li>
+<li>Given a set of reactions, my code automatically generates reaction rates, derivative functions, the Jacobian, etc.</li>
+<li>Using <em>data assimilation</em> we can infer the abundance of reactive species like OH and other trace gasses that are below instrument detection limits</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Elementary bimolecular, trimolecular and photolysis reactions: <span class="math display">\[\begin{align}
+\mathrm{A} + \mathrm{B} &amp;\longrightarrow \text{Products} \\
+\mathrm{A} + \mathrm{B} + \mathrm{M} &amp;\longrightarrow \text{Products} \\
+\mathrm{A} + h\nu &amp;\longrightarrow \text{Products}
+\end{align}\]</span></p>
+<p>All elementary reactions taken together form a system whose dynamics are described by a set of coupled, stiff ODES: <span class="math display">\[\begin{equation}
+  \begin{cases}
+    \dfrac{d{u}_i}{dt} = -\sum_j r_jS_{ij} \\
+    r_j = k_j\prod\limits_{\ell}^{S_{\ell j}&gt;0} u_{\ell}^{S_{ij}}
+  \end{cases}
+\end{equation}\]</span></p>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn9"><p><span class="citation" data-cites="autochem">(<a href="#/references" role="doc-biblioref" onclick="">Fisher and Lary 1995</a>)</span></p></li><li id="fn10"><p><span class="citation" data-cites="mcm">(<a href="#/references" role="doc-biblioref" onclick="">Saunders et al. 2003</a>)</span></p></li></ol></aside></section>
+<section id="d-var" class="slide level2 smaller">
+<h2>4d-var</h2>
+<p><span class="math display">\[\begin{equation}
+    J(u_0) = \frac{1}{2}\left( u_0 - u_0^{(b)} \right)^TB^{-1}\left( u_0 - u_0^{(b)} \right) + \frac{1}{2}\sum_k\left(w_k - h(u_k) \right)^TR_k^{-1}\left(w_k - h(u_k) \right) \\
+\end{equation}\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>4 Dimensional Variational Data Assimilation (4d-var) allows us to find the optimal initial conditions <span class="math inline">\(u_0\)</span> for the chemical mechanism using collected measurements and their associated uncertainties</li>
+<li>I have implemented the technique in Julia utilizing the advanced <code>DifferentialEquations.jl</code> package together with automatic differentiation of the ODE solution vector using <code>SciMLSensitivity.jl</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/chemical-data-assimilation/assimilation/4d-var/losses.png"></p>
+</div>
+</div>
+</section>
+<section id="ekf" class="slide level2">
+<h2>EKF</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div style="font-size: 50%;">
+<ul>
+<li>Using an Ensemble Kalman Filter utilize our measurements to dynamically update the kinetics model</li>
+<li>Measurements <span class="math inline">\(w_k\)</span> and their associated uncertainties <span class="math inline">\(R_k\)</span> are compared against forecasted quantities and their associated uncertainties</li>
+<li>This information allows us to compute an update filter <span class="math inline">\(K_k\)</span> which course-corrects the model</li>
+<li>Information from these measurements propagates to unobserved species allow us to model unobserved species with uncertainty estimates</li>
+</ul>
+<p>Forecasting step: <span class="math display">\[\begin{align}
+    u_k^{(b)} &amp;= \mathcal{M}(u_{k-1}^{(a)}) \\
+    B_k &amp;= D_M(u_{k-1}^{(a)})P_{k-1}D_M^T(u_{k-1}^{(a)}) + Q_k
+\end{align}\]</span></p>
+<p>Assimilation step: <span class="math display">\[\begin{align}
+    K_k &amp;= B_kD_h^T(u_k^{(b)})\left[ D_h(u_k^{(b)})B_kD_h^T(u_k^{(b)}) + R_k \right]^{-1}\\
+    u_k^{(a)} &amp;= u_k^{(b)} + K_k(w_k - h(u_k^{(b)})) \\
+    P_k &amp;= \left( I - K_kD_h(u_k^{(b)}) \right)B_k
+\end{align}\]</span></p>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="./assets/chemical-data-assimilation/assimilation/EKF/h2o2.png" class="absolute" style="top: 0px; left: 700px; width: 350px; "> <img data-src="./assets/chemical-data-assimilation/assimilation/EKF/oh.png" class="absolute" style="top: 350px; left: 700px; width: 350px; "></p>
+</div>
+</div>
 </section>
 <section id="summary-next-steps-2" class="slide level2">
 <h2>Summary &amp; Next Steps</h2>
-<p><img data-src="./assets/chemical-data-assimilation-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
+<p><img data-src="./assets/chemical-data-assimilation-table.png" class="absolute" style="left: 300px; width: 450px; "></p>
 </section>
 <section id="thank-you-for-listening" class="slide level2">
 <h2>Thank you for listening!</h2>
+<div class="columns">
+<div class="column" style="width:33.3%;">
+<p><img data-src="./assets/robot-team-table.png"></p>
+</div><div class="column" style="width:33.3%;">
+<p><img data-src="./assets/air-quality-network-table.png"></p>
+</div><div class="column" style="width:33.3%;">
+<p><img data-src="./assets/chemical-data-assimilation-table.png"></p>
+</div>
+</div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -802,11 +938,35 @@ John Waczak
 <div id="ref-havok" class="csl-entry" role="listitem">
 Brunton, Steven L, Bingni W Brunton, Joshua L Proctor, Eurika Kaiser, and J Nathan Kutz. 2017. <span>“Chaos as an Intermittently Forced Linear System.”</span> <em>Nature Communications</em> 8 (1): 19.
 </div>
+<div id="ref-epa-low-cost" class="csl-entry" role="listitem">
+Conner, Teri, Andrea Clements, Ronald Williams, and Amanda Kaufman. 2018. <span>“How to Evaluate Low-Cost Sensors by Collocation with Federal Reference Monitors.”</span> January 2018. <a href="https://www.epa.gov/sites/default/files/2018-01/documents/collocation_instruction_guide.pdf">https://www.epa.gov/sites/default/files/2018-01/documents/collocation_instruction_guide.pdf</a>.
+</div>
+<div id="ref-autochem" class="csl-entry" role="listitem">
+Fisher, M, and DJ Lary. 1995. <span>“Lagrangian Four-Dimensional Variational Data Assimilation of Chemical Species.”</span> <em>Quarterly Journal of the Royal Meteorological Society</em> 121 (527): 1681–1704.
+</div>
 <div id="ref-resolution-comparison" class="csl-entry" role="listitem">
 Jimenez, Raquel B, Kevin J Lane, Lucy R Hutyra, and M Patricia Fabian. 2022. <span>“Spatial Resolution of Normalized Difference Vegetation Index and Greenness Exposure Misclassification in an Urban Cohort.”</span> <em>Journal of Exposure Science &amp; Environmental Epidemiology</em> 32 (2): 213–22.
 </div>
+<div id="ref-naaqs" class="csl-entry" role="listitem">
+<span>“NAAQS Table.”</span> 2023. March 15, 2023. <a href="https://www.epa.gov/criteria-air-pollutants/naaqs-table">https://www.epa.gov/criteria-air-pollutants/naaqs-table</a>.
+</div>
+<div id="ref-nazaroff2004cleaning" class="csl-entry" role="listitem">
+Nazaroff, William W, and Charles J Weschler. 2004. <span>“Cleaning Products and Air Fresheners: Exposure to Primary and Secondary Air Pollutants.”</span> <em>Atmospheric Environment</em> 38 (18): 2841–65.
+</div>
+<div id="ref-pollution1989report" class="csl-entry" role="listitem">
+Pollution, Indoor Air. 1989. <span>“Report to Congress on Indoor Air Quality, 2.”</span> EPA/400/1.
+</div>
 <div id="ref-ude-paper" class="csl-entry" role="listitem">
 Rackauckas, Christopher, Yingbo Ma, Julius Martensen, Collin Warner, Kirill Zubov, Rohit Supekar, Dominic Skinner, Ali Ramadhan, and Alan Edelman. 2020. <span>“Universal Differential Equations for Scientific Machine Learning.”</span> <em>arXiv Preprint arXiv:2001.04385</em>.
+</div>
+<div id="ref-mcm" class="csl-entry" role="listitem">
+Saunders, Sandra M, Michael E Jenkin, RG Derwent, and MJ Pilling. 2003. <span>“Protocol for the Development of the Master Chemical Mechanism, MCM V3 (Part a): Tropospheric Degradation of Non-Aromatic Volatile Organic Compounds.”</span> <em>Atmospheric Chemistry and Physics</em> 3 (1): 161–80.
+</div>
+<div id="ref-spectral-unmixing" class="csl-entry" role="listitem">
+Wei, Jiaojiao, and Xiaofei Wang. 2020. <span>“An Overview on Linear Unmixing of Hyperspectral Data.”</span> <em>Mathematical Problems in Engineering</em> 2020: 1–12.
+</div>
+<div id="ref-wolpert-stacked" class="csl-entry" role="listitem">
+Wolpert, David H. 1992. <span>“Stacked Generalization.”</span> <em>Neural Networks</em> 5 (2): 241–59.
 </div>
 </div>
 </section></section>
