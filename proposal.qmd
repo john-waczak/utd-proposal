@@ -140,16 +140,19 @@ Due to the diverse and abstract nature of many of these problems, many ML models
 ::::
 
 ## {.smaller}
-
+### Physics-Based Machine Learning
 :::: {.columns}
 
 ::: {.column width="50%"}
+::: {style="font-size: 85%;"}
+
 - The measurements we have are often only *indirectly* related to the quantities we want to estimate
 - Our current physical models may be incomplete (i.e. missing physics)
 - Physical models may have a limited domain of applicability (i.e. limited feature ranges)
 - Many ML models behave as [universal approximators](https://www.sciencedirect.com/science/article/pii/0893608089900208)
 - ML models uses data to overcome the [curse of dimensionality](https://stats.stackexchange.com/questions/186184/does-dimensionality-curse-effect-some-models-more-than-others#:~:text=Neural%20networks%20are%20weird%20in,to%20cover%20an%20input%20space.) with data
 - Many ML models can be further constrained to obey physical symmetries & constraints
+:::
 :::
 
 ::: {.column width="50%"}
@@ -381,10 +384,23 @@ Resolution comparison figure from [@resolution-comparison]
 :::
 ::::
 
-## Summary & Next Steps
+## Summary & Next Steps {.smaller}
 
-![](./assets/robot-team-table.png){.absolute left="300" width="500"}
+:::: {.columns}
+::: {.column width="50%"}
+Code Written: 
 
+- https://github.com/john-waczak/RobotTeam.jl
+- https://github.com/mi3nts/mintsML.jl
+- https://github.com/john-waczak/SolarGeometry.jl
+- https://github.com/john-waczak/SelfOrganizingMaps.jl
+- https://github.com/john-waczak/GenerativeTopographicMapping.jl
+
+:::
+::: {.column width="50%"}
+![](./assets/robot-team-table.png){.absolute left="600" width="500"}
+:::
+::::
 
 # Project 2: MINTS Air Quality Network  {background-image="./assets/sharedair-site.gif"}
 
@@ -552,9 +568,26 @@ Resolution comparison figure from [@resolution-comparison]
 ::::
 
 
-## Summary & Next Steps
+## Summary & Next Steps {.smaller}
 
-![](./assets/air-quality-network-table.png){.absolute left="300" width="500"}
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size: 85%;"}
+Code Written:
+
+- https://github.com/mi3nts/AirQualityAnalysisWorkflows
+- https://github.com/mi3nts/OSN-sync
+- https://github.com/john-waczak/TimeSeriesTools.jl
+- https://github.com/john-waczak/TimeSeriesAnalysis
+
+:::
+:::
+::: {.column width="50%"}
+
+![](./assets/air-quality-network-table.png){.absolute left="600" width="500"}
+
+:::
+::::
 
 # Project 3: Chemical Data Assimilation for Indoor Air Quality
 
@@ -585,6 +618,8 @@ Resolution comparison figure from [@resolution-comparison]
 ## Physical Sensing: Reference Instruments {.smaller}
 :::: {.columns}
 ::: {.column width="50%"}
+::: {style="font-size: 85%;"}
+- Building a air quality testing laboratory in collaboration with ActivePure
 - Suite of reference grade instruments including
   - Aerosol Mass Spectrometer
   - Selected-ion flow-tube mass spectrometer (syft)
@@ -592,6 +627,7 @@ Resolution comparison figure from [@resolution-comparison]
   - Irradiance spectrometers (for photolysis)
 - Automated instrument data acquisition and networking
 - Processing and Storage Pipeline (NodeRed + InfluxDB + Grafana)
+:::
 :::
 ::: {.column width="50%"}
 ![](./assets/chemical-data-assimilation/LabOverview-noap.png)
@@ -643,8 +679,8 @@ Resolution comparison figure from [@resolution-comparison]
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {style="font-size: 70%;"}
-- **Goal:** Utilized reference instruments + Photolysis rates to model indoor chemical kinetics
-- **Goal:** Use data assimilation to infer concentrations of reactive/trace species below detection limits
+- **Goal 1:** Utilized reference instruments + Photolysis rates to model indoor chemical kinetics
+- **Goal 2:** Use data assimilation to infer concentrations of reactive/trace species below detection limits
 - I have implemented two detailed chemical mechanisms in the Julia programming language
   1. AutoChem: originally developed by Dr. Lary at NASA (includes ion chemistry)[^10]
   2. Master Chemical Mechanism: benchmark mechanism in atmospheric chem. with >5,000 species and >16,000 reactions[^11]
@@ -701,7 +737,7 @@ All elementary reactions taken together form a system whose dynamics are describ
 ::: {.column width="60%"}
 ::: {style="font-size: 50%;"}
 
-- Using an Ensemble Kalman Filter utilize our measurements to dynamically update the kinetics model
+- Using an Extended Kalman Filter utilize our measurements to dynamically update the kinetics model
 - Measurements $w_k$ and their associated uncertainties $R_k$ are compared against forecasted quantities and their associated uncertainties
 - This information allows us to compute an update filter $K_k$ which course-corrects the model
 - Information from these measurements propagates to unobserved species allow us to model unobserved species with uncertainty estimates
@@ -729,10 +765,24 @@ Assimilation step:
 
 
 
-## Summary & Next Steps
+## Summary & Next Steps {.smaller}
 
-![](./assets/chemical-data-assimilation-table.png){.absolute left="300" width="450"}
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size: 85%;"}
+Code written:
 
+- https://github.com/john-waczak/activePure_measurement_software
+- https://github.com/john-waczak/AP-labs-measurement-analyses
+- https://github.com/john-waczak/MLJGaussianProcesses.jl
+- https://github.com/john-waczak/Photolysis.jl
+- https://github.com/john-waczak/AutoChem.jl
+:::
+:::
+::: {.column width="50%"}
+![](./assets/chemical-data-assimilation-table.png){.absolute left="600" width="450"}
+:::
+::::
 
 ## Thank you for listening!
 
@@ -776,6 +826,75 @@ Assimilation step:
 :::
 
 ![](./assets/extras/hpo-fit.svg)
+
+
+## Reaction Rate Coefficient Functions
+
+\begin{equation}
+    k(T,P) = A(T,P)\exp(-E_n/k_B T)
+\end{equation}
+
+\begin{equation}
+k_{\text{photolysis}} = J = \int I(\lambda)\sigma(\lambda, T)\Phi(\lambda, T)d\lambda
+\end{equation}
+
+
+## Taken's embedding theorem
+
+- Taken's embedding theorem[^12]: If a dynamical system $f:\mathcal{M}\to\mathcal{M}$ has an attractor of box counting dimension $d$ then *there exists* a $k\geq 2d$ such that the embedding $\mathbf{y}:\mathcal{M}\to\mathbb{R}^{k}$ where
+\begin{equation}
+\mathbf{y}(x) = \left(y(x), y(f(x)), y(f^2(x)), ..., y(f^{k-1}(x)) \right)
+\end{equation}
+is a diffeomorphism.
+
+[^12]: [@takens-theorem]
+
+
+## Koopman Operator Theory {.smaller}
+
+For a discrete dynamical system defined by $u_k = f(u_{k-1})$ an observable is a function $y(u_k)\in\mathbb{R}$. We can define an operator $\mathcal{K}$ such that 
+\begin{equation}
+    K[y(u_k)] = y(f(u_k)) = y(u_{k+1})
+\end{equation}
+Then the dynamics of the observable $y$ can be written using $\mathcal{K}$ as 
+\begin{equation}
+    y_k = \mathcal{K}^k(u_0) = y(f^{k}(u_0))
+\end{equation}
+which is a *linear equation*. The trick is then to try to estimate the operator $\mathcal{K}$ which could require an infinite dimensional basis.
+
+## Hankel Matrix for a Time Series
+
+\begin{equation}
+  H = \begin{bmatrix}
+    y_1 & y_2 & ... & y_p \\
+    y_2 & y_3 & ... & y_{p+1} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    y_q & y_{q+1} & ... & y_{p+q}
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+  H = \begin{bmatrix}
+    y_1 & \mathcal{K}(y_1) & ... & \mathcal{K}^{p-1}(y_1) \\
+    \mathcal{K}(y_1) & \mathcal{K}^2(y_1) & ... & \mathcal{K}^p(y_1) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \mathcal{K}^{q-1}(x_1) & \mathcal{K}^q(x_1) & ... & \mathcal{K}^{p+q-1}(x_1)
+    \end{bmatrix}
+\end{equation}
+
+
+## Methane Mechanism
+
+![](./assets/extras/methane-mechanism.png)
+
+
+## Super Learners & Data Hygiene {.smaller}
+
+1. Data is split into $k$ folds. Each base learner is trained on $k-1$ folds and makes out-of-bag predictions on the $k$ fold (repeated for each fold)
+2. Super learner is trained on these predictions
+3. Finally, base learners are retained on full dataset
+
+![](./assets/extras/super-learner.png)
 
 
 ## References
