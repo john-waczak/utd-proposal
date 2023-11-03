@@ -58,6 +58,10 @@ bibliography: references.bib
 :::
 ::::
 
+::: {.notes}
+applied physics project entitled "..."
+:::
+
 
 # Motivation
 
@@ -92,7 +96,9 @@ bibliography: references.bib
 ![](./assets/motivation/covid-article-1.png){.absolute top="550" left="720" width="400" }
 :::
 
-
+::: {.notes}
+In order to meet the challenges posed by the mountings impacts of global change and human actions on air quality we need to make data driven decisions. To make data driven decisions we need comprehensive physical sensing
+:::
 
 ## {background-image="./assets/mints-ai.png" background-size="contain"}
 
@@ -341,9 +347,9 @@ Resolution comparison figure from [@resolution-comparison]
 :::: {.columns}
 ::: {.column width="50%"}
 
-- By further partitioning our data into distinct $\mathcal{D}_{\text{train}}, \mathcal{D}_{\text{test}}, \mathcal{D}_{\text{cal}}$ sets we can utilize conformal prediction to generate robust, distribution free, confidence intervals for our ML predictions
+- By further partitioning our data into distinct $D_{\text{train}}, D_{\text{test}}, D_{\text{cal}}$ sets we can utilize conformal prediction to generate robust, distribution free, confidence intervals for our ML predictions
 - Conformal prediction (CP) is model agnostic
-- By using the $\mathcal{D}_{\text{cal}}$ holdout set we can calibrate a heuristic uncertainty score like the residual error $\lvert y - \hat{y}\rvert$ into a suitable confidence interval with coverage $\alpha$.[^2]
+- By using the $D_{\text{cal}}$ holdout set we can calibrate a heuristic uncertainty score like the residual error $\lvert y - y_{\text{pred}}\rvert$ into a suitable confidence interval with coverage $\alpha$.[^2]
 
 [^2]: [@conformal-prediction]
 
