@@ -440,7 +440,7 @@ John Waczak
 <p><img data-src="./assets/motivation/covid-article-2.png" class="absolute" style="top: 550px; left: 90px; width: 400px; "> <img data-src="./assets/motivation/covid-article-1.png" class="absolute" style="top: 550px; left: 720px; width: 400px; "></p>
 </div>
 <aside class="notes">
-<p>In order to meet the challenges posed by the mountings impacts of global change and human actions on air quality we need to make data driven decisions. To make data driven decisions we need comprehensive physical sensing</p>
+<p>In order to meet the challenges posed by the mounting impacts of global change and human actions on air quality we need to make data driven decisions. To make data driven decisions we need comprehensive physical sensing</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -496,8 +496,10 @@ John Waczak
 </section>
 <section id="section-3" class="slide level2 smaller">
 <h2></h2>
+<h3 id="physics-based-machine-learning">Physics-Based Machine Learning</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size: 85%;">
 <ul>
 <li>The measurements we have are often only <em>indirectly</em> related to the quantities we want to estimate</li>
 <li>Our current physical models may be incomplete (i.e.&nbsp;missing physics)</li>
@@ -506,6 +508,7 @@ John Waczak
 <li>ML models uses data to overcome the <a href="https://stats.stackexchange.com/questions/186184/does-dimensionality-curse-effect-some-models-more-than-others#:~:text=Neural%20networks%20are%20weird%20in,to%20cover%20an%20input%20space.">curse of dimensionality</a> with data</li>
 <li>Many ML models can be further constrained to obey physical symmetries &amp; constraints</li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
 <!-- ![](./assets/motivation/ude-framework.png){.absolute top="0" left="0" width="600" } -->
 <p><img data-src="./assets/motivation/ude-framework.png"></p>
@@ -706,9 +709,22 @@ John Waczak
 </div>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn3"><p><span class="citation" data-cites="spectral-unmixing">(<a href="#/references" role="doc-biblioref" onclick="">Wei and Wang 2020</a>)</span></p></li></ol></aside></section>
-<section id="summary-next-steps" class="slide level2">
+<section id="summary-next-steps" class="slide level2 smaller">
 <h2>Summary &amp; Next Steps</h2>
-<p><img data-src="./assets/robot-team-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Code Written:</p>
+<ul>
+<li>https://github.com/john-waczak/RobotTeam.jl</li>
+<li>https://github.com/mi3nts/mintsML.jl</li>
+<li>https://github.com/john-waczak/SolarGeometry.jl</li>
+<li>https://github.com/john-waczak/SelfOrganizingMaps.jl</li>
+<li>https://github.com/john-waczak/GenerativeTopographicMapping.jl</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/robot-team-table.png" class="absolute" style="left: 600px; width: 500px; "></p>
+</div>
+</div>
 </section></section>
 <section>
 <section id="project-2-mints-air-quality-network" class="title-slide slide level1 center" data-background-image="./assets/sharedair-site.gif">
@@ -844,9 +860,23 @@ John Waczak
 </div>
 </div>
 </section>
-<section id="summary-next-steps-1" class="slide level2">
+<section id="summary-next-steps-1" class="slide level2 smaller">
 <h2>Summary &amp; Next Steps</h2>
-<p><img data-src="./assets/air-quality-network-table.png" class="absolute" style="left: 300px; width: 500px; "></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 85%;">
+<p>Code Written:</p>
+<ul>
+<li>https://github.com/mi3nts/AirQualityAnalysisWorkflows</li>
+<li>https://github.com/mi3nts/OSN-sync</li>
+<li>https://github.com/john-waczak/TimeSeriesTools.jl</li>
+<li>https://github.com/john-waczak/TimeSeriesAnalysis</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/air-quality-network-table.png" class="absolute" style="left: 600px; width: 500px; "></p>
+</div>
+</div>
 </section></section>
 <section>
 <section id="project-3-chemical-data-assimilation-for-indoor-air-quality" class="title-slide slide level1 center">
@@ -873,7 +903,9 @@ John Waczak
 <h2>Physical Sensing: Reference Instruments</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size: 85%;">
 <ul>
+<li>Building a air quality testing laboratory in collaboration with ActivePure</li>
 <li>Suite of reference grade instruments including
 <ul>
 <li>Aerosol Mass Spectrometer</li>
@@ -884,6 +916,7 @@ John Waczak
 <li>Automated instrument data acquisition and networking</li>
 <li>Processing and Storage Pipeline (NodeRed + InfluxDB + Grafana)</li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="./assets/chemical-data-assimilation/LabOverview-noap.png"></p>
 </div>
@@ -931,8 +964,8 @@ John Waczak
 <div class="column" style="width:50%;">
 <div style="font-size: 70%;">
 <ul>
-<li><strong>Goal:</strong> Utilized reference instruments + Photolysis rates to model indoor chemical kinetics</li>
-<li><strong>Goal:</strong> Use data assimilation to infer concentrations of reactive/trace species below detection limits</li>
+<li><strong>Goal 1:</strong> Utilized reference instruments + Photolysis rates to model indoor chemical kinetics</li>
+<li><strong>Goal 2:</strong> Use data assimilation to infer concentrations of reactive/trace species below detection limits</li>
 <li>I have implemented two detailed chemical mechanisms in the Julia programming language
 <ol type="1">
 <li>AutoChem: originally developed by Dr.&nbsp;Lary at NASA (includes ion chemistry)<sup>1</sup></li>
@@ -980,7 +1013,7 @@ John Waczak
 <div class="column" style="width:60%;">
 <div style="font-size: 50%;">
 <ul>
-<li>Using an Ensemble Kalman Filter utilize our measurements to dynamically update the kinetics model</li>
+<li>Using an Extended Kalman Filter utilize our measurements to dynamically update the kinetics model</li>
 <li>Measurements <span class="math inline">\(w_k\)</span> and their associated uncertainties <span class="math inline">\(R_k\)</span> are compared against forecasted quantities and their associated uncertainties</li>
 <li>This information allows us to compute an update filter <span class="math inline">\(K_k\)</span> which course-corrects the model</li>
 <li>Information from these measurements propagates to unobserved species allow us to model unobserved species with uncertainty estimates</li>
@@ -1000,9 +1033,24 @@ John Waczak
 </div>
 </div>
 </section>
-<section id="summary-next-steps-2" class="slide level2">
+<section id="summary-next-steps-2" class="slide level2 smaller">
 <h2>Summary &amp; Next Steps</h2>
-<p><img data-src="./assets/chemical-data-assimilation-table.png" class="absolute" style="left: 300px; width: 450px; "></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 85%;">
+<p>Code written:</p>
+<ul>
+<li>https://github.com/john-waczak/activePure_measurement_software</li>
+<li>https://github.com/john-waczak/AP-labs-measurement-analyses</li>
+<li>https://github.com/john-waczak/MLJGaussianProcesses.jl</li>
+<li>https://github.com/john-waczak/Photolysis.jl</li>
+<li>https://github.com/john-waczak/AutoChem.jl</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./assets/chemical-data-assimilation-table.png" class="absolute" style="left: 600px; width: 450px; "></p>
+</div>
+</div>
 </section>
 <section id="thank-you-for-listening" class="slide level2">
 <h2>Thank you for listening!</h2>
@@ -1038,6 +1086,63 @@ John Waczak
 </div>
 
 <img data-src="./assets/extras/hpo-fit.svg" class="r-stretch"></section>
+<section id="reaction-rate-coefficient-functions" class="slide level2">
+<h2>Reaction Rate Coefficient Functions</h2>
+<p><span class="math display">\[\begin{equation}
+    k(T,P) = A(T,P)\exp(-E_n/k_B T)
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+k_{\text{photolysis}} = J = \int I(\lambda)\sigma(\lambda, T)\Phi(\lambda, T)d\lambda
+\end{equation}\]</span></p>
+</section>
+<section id="takens-embedding-theorem" class="slide level2">
+<h2>Taken’s embedding theorem</h2>
+<ul>
+<li>Taken’s embedding theorem<sup>1</sup>: If a dynamical system <span class="math inline">\(f:\mathcal{M}\to\mathcal{M}\)</span> has an attractor of box counting dimension <span class="math inline">\(d\)</span> then <em>there exists</em> a <span class="math inline">\(k\geq 2d\)</span> such that the embedding <span class="math inline">\(\mathbf{y}:\mathcal{M}\to\mathbb{R}^{k}\)</span> where <span class="math display">\[\begin{equation}
+\mathbf{y}(x) = \left(y(x), y(f(x)), y(f^2(x)), ..., y(f^{k-1}(x)) \right)
+\end{equation}\]</span> is a diffeomorphism.</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn12"><p><span class="citation" data-cites="takens-theorem">(<a href="#/references" role="doc-biblioref" onclick="">Takens 1980</a>)</span></p></li></ol></aside></section>
+<section id="koopman-operator-theory" class="slide level2 smaller">
+<h2>Koopman Operator Theory</h2>
+<p>For a discrete dynamical system defined by <span class="math inline">\(u_k = f(u_{k-1})\)</span> an observable is a function <span class="math inline">\(y(u_k)\in\mathbb{R}\)</span>. We can define an operator <span class="math inline">\(\mathcal{K}\)</span> such that <span class="math display">\[\begin{equation}
+    K[y(u_k)] = y(f(u_k)) = y(u_{k+1})
+\end{equation}\]</span> Then the dynamics of the observable <span class="math inline">\(y\)</span> can be written using <span class="math inline">\(\mathcal{K}\)</span> as <span class="math display">\[\begin{equation}
+    y_k = \mathcal{K}^k(u_0) = y(f^{k}(u_0))
+\end{equation}\]</span> which is a <em>linear equation</em>. The trick is then to try to estimate the operator <span class="math inline">\(\mathcal{K}\)</span> which could require an infinite dimensional basis.</p>
+</section>
+<section id="hankel-matrix-for-a-time-series" class="slide level2">
+<h2>Hankel Matrix for a Time Series</h2>
+<p><span class="math display">\[\begin{equation}
+  H = \begin{bmatrix}
+    y_1 &amp; y_2 &amp; ... &amp; y_p \\
+    y_2 &amp; y_3 &amp; ... &amp; y_{p+1} \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    y_q &amp; y_{q+1} &amp; ... &amp; y_{p+q}
+    \end{bmatrix}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+  H = \begin{bmatrix}
+    y_1 &amp; \mathcal{K}(y_1) &amp; ... &amp; \mathcal{K}^{p-1}(y_1) \\
+    \mathcal{K}(y_1) &amp; \mathcal{K}^2(y_1) &amp; ... &amp; \mathcal{K}^p(y_1) \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    \mathcal{K}^{q-1}(x_1) &amp; \mathcal{K}^q(x_1) &amp; ... &amp; \mathcal{K}^{p+q-1}(x_1)
+    \end{bmatrix}
+\end{equation}\]</span></p>
+</section>
+<section id="methane-mechanism" class="slide level2">
+<h2>Methane Mechanism</h2>
+
+<img data-src="./assets/extras/methane-mechanism.png" class="r-stretch"></section>
+<section id="super-learners-data-hygiene" class="slide level2 smaller">
+<h2>Super Learners &amp; Data Hygiene</h2>
+<ol type="1">
+<li>Data is split into <span class="math inline">\(k\)</span> folds. Each base learner is trained on <span class="math inline">\(k-1\)</span> folds and makes out-of-bag predictions on the <span class="math inline">\(k\)</span> fold (repeated for each fold)</li>
+<li>Super learner is trained on these predictions</li>
+<li>Finally, base learners are retained on full dataset</li>
+</ol>
+
+<img data-src="./assets/extras/super-learner.png" class="r-stretch"></section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div class="footer footer-default">
@@ -1073,6 +1178,9 @@ Rackauckas, Christopher, Yingbo Ma, Julius Martensen, Collin Warner, Kirill Zubo
 </div>
 <div id="ref-mcm" class="csl-entry" role="listitem">
 Saunders, Sandra M, Michael E Jenkin, RG Derwent, and MJ Pilling. 2003. <span>“Protocol for the Development of the Master Chemical Mechanism, MCM V3 (Part a): Tropospheric Degradation of Non-Aromatic Volatile Organic Compounds.”</span> <em>Atmospheric Chemistry and Physics</em> 3 (1): 161–80.
+</div>
+<div id="ref-takens-theorem" class="csl-entry" role="listitem">
+Takens, Floris. 1980. <span>“Detecting Strange Attractors in Turbulence.”</span> In <em>Dynamical Systems and Turbulence, Warwick 1980: Proceedings of a Symposium Held at the University of Warwick 1979/80</em>, 366–81. Springer.
 </div>
 <div id="ref-spectral-unmixing" class="csl-entry" role="listitem">
 Wei, Jiaojiao, and Xiaofei Wang. 2020. <span>“An Overview on Linear Unmixing of Hyperspectral Data.”</span> <em>Mathematical Problems in Engineering</em> 2020: 1–12.
