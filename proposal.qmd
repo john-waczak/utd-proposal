@@ -97,7 +97,7 @@ applied physics project entitled "..."
 :::
 
 ::: {.notes}
-In order to meet the challenges posed by the mountings impacts of global change and human actions on air quality we need to make data driven decisions. To make data driven decisions we need comprehensive physical sensing
+In order to meet the challenges posed by the mounting impacts of global change and human actions on air quality we need to make data driven decisions. To make data driven decisions we need comprehensive physical sensing
 :::
 
 ## {background-image="./assets/mints-ai.png" background-size="contain"}
