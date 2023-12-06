@@ -1,5 +1,5 @@
 ---
-title: "Physcial Sensing and Physics-based Machine Learning for Actionable Environmental Insights"
+title: "Physical Sensing and Physics-based Machine Learning for Actionable Environmental Insights"
 author: "John Waczak"
 date: today
 format:
